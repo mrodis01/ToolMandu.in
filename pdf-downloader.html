@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolMandu | Pdf-downloader</title>
+<meta name="description" content="Use 100% free online tools & download resume templates, study notes, and business cards. No signup needed." />
+<meta name="keywords" content="free tools, downloads, resume templates, QR code, age calculator, toolmandu" />
+<meta name="author" content="mr_odis" />
+
+<!-- Open Graph (for social sharing) -->
+<meta property="og:title" content="ToolMandu - All Free Tools & Downloads" />
+<meta property="og:description" content="Get instant access to free tools & downloadable content like resume templates, Insta bios & more." />
+<meta property="og:url" content="https://www.toolmandu.in" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.toolmandu.in/images/cover.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DMNMLX87L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1DMNMLX87L');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Downloader - ToolMandu</title>
+
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body{background:#111;color:#fff;font-family:'Poppins',sans-serif}
+    .pdf-tool{max-width:600px;margin:60px auto;background:#1a1a1a;padding:30px;border-radius:10px;box-shadow:0 0 10px #d00;text-align:center}
+    input[type="url"]{width:100%;padding:12px;border:none;border-radius:6px;font-size:15px;outline:none;margin-bottom:20px}
+    button{background:#d00;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:14px;cursor:pointer}
+    button:hover{background:#fff;color:#d00}
+    .preview-box{margin-top:15px;background:#222;padding:10px;border-radius:6px;font-size:14px;color:#eee;word-break:break-all}
+    .ads-header{background:#222;color:#eee;text-align:center;padding:10px;font-size:14px}
+    .site-footer{background:#000;color:#999;padding:15px;text-align:center;font-size:14px;border-top:2px solid #d00;margin-top:40px}
+  </style>
+</head>
+<body>
+
+  <div class="ads-header">📢 PDF Downloader Tool Ad Banner</div>
+
+  <div class="pdf-tool">
+    <h2><i class="fas fa-file-pdf"></i> PDF Downloader</h2>
+    <input type="url" id="pdfUrl" placeholder="Paste direct PDF link here (must end with .pdf)" />
+    <button onclick="downloadPDF()">Download PDF</button>
+    <div id="preview" class="preview-box" style="display:none;"></div>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2025 ToolMandu | Built by <strong>mr_odis</strong>
+  </footer>
+
+  <script>
+    async function downloadPDF(){
+      const url = document.getElementById('pdfUrl').value.trim();
+      const preview = document.getElementById('preview');
+      preview.style.display='none';
+
+      if(!url || !url.toLowerCase().endsWith('.pdf')){
+        alert('❌ Invalid URL – please paste a direct link ending with .pdf');
+        return;
+      }
+
+      preview.innerHTML='⏳ Fetching file…';
+      preview.style.display='block';
+
+      try{
+        const res = await fetch(url,{mode:'cors'});
+        if(!res.ok) throw new Error('Network response was not ok');
+        const blob = await res.blob();
+
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = url.split('/').pop().split('?')[0] || 'download.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(blobUrl);
+
+        preview.innerHTML='✅ Download started for: <br>'+url;
+      }catch(err){
+        console.error(err);
+        preview.innerHTML='❌ Could not fetch file. Some servers block direct download (CORS).';
+      }
+    }
+  </script>
+</body>
+</html> 

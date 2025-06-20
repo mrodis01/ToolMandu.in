@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolMandu | Age-calculator</title>
+<meta name="description" content="Use 100% free online tools & download resume templates, study notes, and business cards. No signup needed." />
+<meta name="keywords" content="free tools, downloads, resume templates, QR code, age calculator, toolmandu" />
+<meta name="author" content="mr_odis" />
+
+<!-- Open Graph (for social sharing) -->
+<meta property="og:title" content="ToolMandu - All Free Tools & Downloads" />
+<meta property="og:description" content="Get instant access to free tools & downloadable content like resume templates, Insta bios & more." />
+<meta property="og:url" content="https://www.toolmandu.in" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.toolmandu.in/images/cover.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DMNMLX87L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1DMNMLX87L');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Age Calculator - ToolMandu</title>
+  
+  <!-- Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .age-tool {
+      max-width: 500px;
+      margin: 80px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px #d00;
+    }
+
+    .age-tool h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .age-tool input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .age-tool button {
+      background: #d00;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .age-tool button:hover {
+      background: #fff;
+      color: #d00;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .ads-header {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .site-footer {
+      background: #000;
+      color: #999;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid #d00;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ad Banner -->
+  <div class="ads-header">
+    <p>📢 Age Tool Ad Banner</p>
+  </div>
+
+  <!-- Age Calculator -->
+  <div class="age-tool">
+    <h2><i class="fas fa-calculator"></i> Age Calculator</h2>
+    <input type="date" id="dob" />
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div id="result"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 ToolMandu. Age tool coded with care by <strong>mr_odis</strong></p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function calculateAge() {
+      const dob = new Date(document.getElementById("dob").value);
+      const today = new Date();
+
+      if (!document.getElementById("dob").value) {
+        document.getElementById("result").innerText = "Please select a date.";
+        return;
+      }
+
+      let years = today.getFullYear() - dob.getFullYear();
+      let months = today.getMonth() - dob.getMonth();
+      let days = today.getDate() - dob.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      document.getElementById("result").innerHTML =
+        `<strong>You are:</strong><br>${years} years, ${months} months, ${days} days old`;
+    }
+  </script>
+</body>
+</html>

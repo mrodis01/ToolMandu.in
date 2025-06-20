@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Code Generator - ToolMandu</title>
+  
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .qr-tool {
+      max-width: 500px;
+      margin: 80px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px #d00;
+    }
+
+    .qr-tool h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .qr-tool input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .qr-tool button {
+      background: #d00;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .qr-tool button:hover {
+      background: #fff;
+      color: #d00;
+    }
+
+    #qrcode {
+      margin: 20px 0;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #fff;
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .ads-header {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .site-footer {
+      background: #000;
+      color: #999;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid #d00;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ad Banner -->
+  <div class="ads-header">
+    <p>📢 QR Code Tool Ad Banner</p>
+  </div>
+
+  <!-- QR Tool Box -->
+  <div class="qr-tool">
+    <h2><i class="fas fa-qrcode"></i> QR Code Generator</h2>
+    <input type="text" id="qrInput" placeholder="Enter text, link, or number..." />
+    <button onclick="generateQR()">Generate QR</button>
+    <div id="qrcode"></div>
+    <a id="downloadLink" class="download-link" style="display: none;" download="qrcode.png">⬇️ Download QR Code</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 ToolMandu. QR Generator powered by <strong>mr_odis</strong></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    function generateQR() {
+      const input = document.getElementById("qrInput").value;
+      const qrContainer = document.getElementById("qrcode");
+      const downloadLink = document.getElementById("downloadLink");
+
+      qrContainer.innerHTML = "";
+      downloadLink.style.display = "none";
+
+      if (input.trim() === "") return;
+
+      QRCode.toDataURL(input, { width: 200, margin: 2 }, function (err, url) {
+        const img = document.createElement("img");
+        img.src = url;
+        qrContainer.appendChild(img);
+
+        downloadLink.href = url;
+        downloadLink.style.display = "inline-block";
+      });
+    }
+  </script>
+</body>
+</html>

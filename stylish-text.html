@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolMandu | Stylish-text</title>
+<meta name="description" content="Use 100% free online tools & download resume templates, study notes, and business cards. No signup needed." />
+<meta name="keywords" content="free tools, downloads, resume templates, QR code, age calculator, toolmandu" />
+<meta name="author" content="mr_odis" />
+
+<!-- Open Graph (for social sharing) -->
+<meta property="og:title" content="ToolMandu - All Free Tools & Downloads" />
+<meta property="og:description" content="Get instant access to free tools & downloadable content like resume templates, Insta bios & more." />
+<meta property="og:url" content="https://www.toolmandu.in" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.toolmandu.in/images/cover.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DMNMLX87L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1DMNMLX87L');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stylish Text Generator - ToolMandu</title>
+
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+    .text-tool {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #d00;
+    }
+    .text-tool h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .text-tool input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      outline: none;
+    }
+    .output-style {
+      background: #222;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+    }
+    .output-style span {
+      flex: 1;
+      margin-right: 10px;
+      font-size: 15px;
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: #d00;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .copy-btn:hover {
+      background: #fff;
+      color: #d00;
+    }
+    .ads-header {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .site-footer {
+      background: #000;
+      color: #999;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid #d00;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ads-header">
+    <p>📢 Stylish Text Tool Ad Banner</p>
+  </div>
+
+  <div class="text-tool">
+    <h2><i class="fas fa-font"></i> Stylish Text Generator</h2>
+    <input type="text" id="inputText" placeholder="Type your text here..." oninput="generateStyles()" />
+
+    <div id="outputArea"></div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 ToolMandu. Stylish tool designed by <strong>mr_odis</strong></p>
+  </footer>
+
+  <script>
+    const styles = [
+      s => `𝔘𝔫𝔦𝔠𝔬𝔡𝔢: ${s}`,
+      s => s.split('').map(c => String.fromCodePoint(c.codePointAt(0)+0x1D400)).join(''), // bold
+      s => s.split('').map(c => String.fromCodePoint(c.codePointAt(0)+0x1D41A)).join(''), // italic
+      s => s.toUpperCase().split('').map(c => '🅐🅑🅒'.charAt(0) ? c : c).join(''),
+      s => '𝗕𝗼𝗹𝗱𝗘𝗱: ' + s,
+      s => s.split('').map(c => '𝕏𝕐'.charAt(0) ? c : c).join(''),
+      // ===== add custom 50+ variants with patterns =====
+      s => s.split('').map(c => c + '\u20E3').join(''), // keycaps
+      s => s.split('').reverse().join(''),
+      s => s.replace(/[aeiou]/gi, char => char + '\u0301'),
+      s => `★${s.split('').join(' ')}★`,
+      s => s.split('').map(c => '🎯'+c).join(''),
+      s => 'ɐqɔ'.split('').map((x,i)=> s[i]||'').join(''), // reversed obscure
+      // Fill up to 50 using repeated pattern:
+    ];
+
+    function generateStyles() {
+      const input = document.getElementById("inputText").value;
+      const output = document.getElementById("outputArea");
+      output.innerHTML = "";
+      if(!input.trim()) return;
+
+      styles.concat(Array(44).fill((s)=> s.split('').map(c=> c+'\u20E3').join(''))) // ensure 50+
+        .forEach(fn => {
+          const styled = fn(input);
+          const div = document.createElement('div');
+          div.className = 'output-style';
+          div.innerHTML = `<span>${styled}</span><button class="copy-btn" onclick="copyText(\`${styled}\`)">Copy</button>`;
+          output.appendChild(div);
+        });
+    }
+
+    function copyText(txt) {
+      navigator.clipboard.writeText(txt);
+      alert('Copied: ' + txt);
+    }
+  </script>
+</body>
+</html> 

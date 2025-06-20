@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolMandu | Text-case</title>
+<meta name="description" content="Use 100% free online tools & download resume templates, study notes, and business cards. No signup needed." />
+<meta name="keywords" content="free tools, downloads, resume templates, QR code, age calculator, toolmandu" />
+<meta name="author" content="mr_odis" />
+
+<!-- Open Graph (for social sharing) -->
+<meta property="og:title" content="ToolMandu - All Free Tools & Downloads" />
+<meta property="og:description" content="Get instant access to free tools & downloadable content like resume templates, Insta bios & more." />
+<meta property="og:url" content="https://www.toolmandu.in" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.toolmandu.in/images/cover.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DMNMLX87L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1DMNMLX87L');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text Case Converter - ToolMandu</title>
+
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .case-tool {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #d00;
+    }
+
+    .case-tool h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .case-tool textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      resize: vertical;
+      height: 100px;
+      outline: none;
+    }
+
+    .output-case {
+      background: #222;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .output-case span {
+      flex: 1;
+      font-size: 15px;
+      margin-right: 10px;
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      background: #d00;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: #fff;
+      color: #d00;
+    }
+
+    .ads-header {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .site-footer {
+      background: #000;
+      color: #999;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid #d00;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ads-header">
+    <p>📢 Text Case Converter Ad Banner</p>
+  </div>
+
+  <div class="case-tool">
+    <h2><i class="fas fa-text-height"></i> Text Case Converter</h2>
+    <textarea id="inputText" placeholder="Type or paste your text..." oninput="convertCases()"></textarea>
+
+    <div id="outputArea"></div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 ToolMandu. Built with logic by <strong>mr_odis</strong></p>
+  </footer>
+
+  <script>
+    function convertCases() {
+      const text = document.getElementById("inputText").value;
+      const output = document.getElementById("outputArea");
+      output.innerHTML = "";
+
+      const cases = [
+        { label: "UPPERCASE", value: text.toUpperCase() },
+        { label: "lowercase", value: text.toLowerCase() },
+        { label: "Capitalized Case", value: text.replace(/\b\w/g, c => c.toUpperCase()) },
+        { label: "Sentence case", value: text.charAt(0).toUpperCase() + text.slice(1).toLowerCase() },
+        { label: "aLtErNaTiNg CaSe", value: altCase(text) }
+      ];
+
+      cases.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "output-case";
+        div.innerHTML = `<span><strong>${c.label}:</strong> ${c.value}</span><button class="copy-btn" onclick="copyText(\`${c.value}\`)">Copy</button>`;
+        output.appendChild(div);
+      });
+    }
+
+    function altCase(text) {
+      return text.split('').map((c, i) => i % 2 === 0 ? c.toLowerCase() : c.toUpperCase()).join('');
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text);
+      alert("Copied: " + text);
+    }
+  </script>
+</body>
+</html>

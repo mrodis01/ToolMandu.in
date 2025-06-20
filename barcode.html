@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolMandu | Barcode</title>
+<meta name="description" content="Use 100% free online tools & download resume templates, study notes, and business cards. No signup needed." />
+<meta name="keywords" content="free tools, downloads, resume templates, QR code, age calculator, toolmandu" />
+<meta name="author" content="mr_odis" />
+
+<!-- Open Graph (for social sharing) -->
+<meta property="og:title" content="ToolMandu - All Free Tools & Downloads" />
+<meta property="og:description" content="Get instant access to free tools & downloadable content like resume templates, Insta bios & more." />
+<meta property="og:url" content="https://www.toolmandu.in" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.toolmandu.in/images/cover.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DMNMLX87L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1DMNMLX87L');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barcode Generator - ToolMandu</title>
+
+  <!-- Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .barcode-tool {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #d00;
+      text-align: center;
+    }
+
+    .barcode-tool h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .barcode-tool input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .barcode-tool button {
+      background: #d00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .barcode-tool button:hover {
+      background: white;
+      color: #d00;
+    }
+
+    canvas {
+      margin-top: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .ads-header {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .site-footer {
+      background: #000;
+      color: #999;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid #d00;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ads-header">
+    <p>📢 Barcode Generator Tool Ad Banner</p>
+  </div>
+
+  <div class="barcode-tool">
+    <h2><i class="fas fa-barcode"></i> Barcode Generator</h2>
+    <input type="text" id="barcodeInput" placeholder="Enter text or number..." />
+    <button onclick="generateBarcode()">Generate Barcode</button>
+    <br/>
+    <canvas id="barcodeCanvas"></canvas>
+    <br/>
+    <button onclick="downloadBarcode()">Download</button>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 ToolMandu. Barcode tool coded by <strong>mr_odis</strong></p>
+  </footer>
+
+  <script>
+    function generateBarcode() {
+      const input = document.getElementById("barcodeInput").value;
+      JsBarcode("#barcodeCanvas", input, {
+        format: "CODE128",
+        lineColor: "#000",
+        width: 2,
+        height: 80,
+        displayValue: true
+      });
+    }
+
+    function downloadBarcode() {
+      const canvas = document.getElementById("barcodeCanvas");
+      const link = document.createElement("a");
+      link.download = "barcode.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>
