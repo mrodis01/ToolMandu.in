@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Reels Downloader | ToolMandu</title>
+  <!-- 🔍 SEO Meta Tags -->
+  <meta name="description" content="Download Instagram Reels instantly in one click – free, fast & no sign‑up needed. Part of ToolMandu's all‑in‑one online toolbox." />
+  <meta name="keywords" content="Instagram Reels downloader, reel saver, download instagram video, ToolMandu tools" />
+  <meta name="author" content="ToolMandu" />
+  <!-- Open‑Graph for social share -->
+  <meta property="og:title" content="Instagram Reels Downloader – ToolMandu" />
+  <meta property="og:description" content="Save any public Instagram Reel as MP4 in seconds. 100 % free." />
+  <meta property="og:image" content="https://mrodis01.github.io/ToolMandu.in/preview.jpg" />
+  <meta property="og:url" content="https://mrodis01.github.io/ToolMandu.in/reels-downloader.html" />
+  <meta property="og:type" content="website" />  <!-- 🛡️ Google Analytics -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GG3Q9HYKW5"></script>  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'G-GG3Q9HYKW5');
+  </script>  <!-- Icon & Font Awesome -->  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Optional external css -->
+  <link rel="stylesheet" href="style.css" />  <style>
+    body{background:#0d0d0d;color:#fff;font-family:'Segoe UI',sans-serif;display:flex;flex-direction:column;align-items:center;padding:50px 20px;}
+    h1{font-size:2rem;margin-bottom:20px;color:#ff2c74;text-align:center}
+    .tool-box{background:#1a1a1a;padding:30px;border-radius:12px;box-shadow:0 0 10px #ff2c74aa;max-width:500px;width:100%;text-align:center}
+    input[type="text"]{width:100%;padding:12px;border:none;border-radius:6px;margin-bottom:20px;font-size:1rem;background:#fff;color:#000}
+    button{padding:12px 25px;background:#ff2c74;border:none;border-radius:6px;color:#fff;font-weight:bold;cursor:pointer}
+    button:hover{background:#e02365}
+    .preview{margin-top:25px}
+    iframe{width:100%;height:300px;border-radius:10px;border:none}
+    @media(max-width:520px){iframe{height:220px}}
+  </style></head>
+<body>
+  <h1><i class="fab fa-instagram"></i> Instagram Reels Downloader</h1>
+  <div class="tool-box">
+    <input type="text" id="reelLink" placeholder="Paste Instagram Reel link here (public reels only)" />
+    <button onclick="previewReel()">Preview & Download</button>
+    <div class="preview" id="previewBox"></div>
+  </div>  <script>
+    function previewReel(){
+      const link=document.getElementById('reelLink').value.trim();
+      const box=document.getElementById('previewBox');
+      if(!link||!link.includes('instagram.com')){
+        box.innerHTML='<p style="color:#ff5c5c">Please enter a valid public Instagram Reel link.</p>';return;}
+      const embedURL=link.replace('/reel/','/p/').split('?')[0]+"embed";
+      box.innerHTML=`<p style="margin-bottom:8px">Preview:</p><iframe src="${embedURL}" allowfullscreen></iframe><p style="margin-top:10px"><a href="${link}" target="_blank" style="color:#ff2c74">Open in Instagram</a></p>`;}
+  </script></body>
+                                             </html>
